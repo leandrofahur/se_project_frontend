@@ -29,6 +29,10 @@
         "prettier": "^2.5.1"
     },
     "scripts": {
+        "format": "prettier --config .prettierrc.json --check \"**/*.{js,jsx,ts,tsx}\"",
+        "format-fix": "prettier --config .prettierrc.json \"**/*.{js,jsx,ts,tsx}\" --write .",
+        "lint": "eslint --ext \".js,.jsx,.ts,.tsx\" .",
+        "lint-fix": "eslint src/* --fix",
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
