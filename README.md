@@ -100,7 +100,7 @@ More about can be found in the link on the references section.
 <br/>
 
 <h2>📝 <strong>References</strong></h2>
-<ol>    
+<ol>
   <li>
     <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository">
         Github - Configuring branches and merges in your repository
