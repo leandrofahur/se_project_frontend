@@ -1,113 +1,46 @@
-<h1 align="center"><strong>CSIS 3275-070 Software Engineering</strong></h1>
-<h5 align="center"><strong>Beware, this is a living document and it will be continuously updated!!! 🚀</strong></h5>
-<br/>
+# Getting Started with Create React App
 
-<blockquote>
-  <br/>
-  <h2><strong>"Documentation is a love letter that you write to your future self." - Damian Conway</strong></h2>
-  <br/>
-</blockquote>
-<br/>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<h2>🎯 <strong>Objectives</strong></h2>
-<p>
-  This repository comprises the frontend implemented in React + Typescript using the Chakra UI as a styling framework.
-</p>
-<br/>
+## Available Scripts
 
-<h2>👥 <strong>Contributors</strong></h2>
-<br/>
-<a style="padding-left: 20px" href="https://github.com/leandrofahur">Leandro Machado - 300326045</a><br/>
-<a style="padding-left: 20px" href="https://github.com/marimagalhaesl">Mariana Magalhães - 300330330</a><br/>
-<a style="padding-left: 20px" href="https://github.com/sebastian-gm">Sebastian Gonzalez - 300326988</a><br/>
-<a style="padding-left: 20px" href="https://github.com/FourSeasonK">Sung Ah Kim - 300341721</a><br/>
-<br/>
+In the project directory, you can run:
 
-<h2>🥷 <strong>Github Best Practices</strong></h2>
+### `yarn start`
 
-<strong>Clone the repository:</strong>
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-```javascript
-$ git clone https://github.com/leandrofahur/se_project_backend.git
-```
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-<strong>Create your own branch:</strong>
+### `yarn test`
 
-```javascript
-$ git checkout -b  <branch_name>
-```
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-If you are in the main branch, this command will copy the main one and create a new branch named <branch_name>.
+### `yarn build`
 
-<strong>Staging, commiting and pushing:</strong>
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-```javascript
-$ git add .
-```
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-```javascript
-$ git commit -m "a comment describing what this commit is about"
-```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-```javascript
-$ git push
-```
+### `yarn eject`
 
-If you are pushing for the first time, git will ask you to execute the command
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-```javascript
-$ git push --set-upstream origin <branch_name>
-```
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Where the <branch_name> tag is the name of your local branch that is going to be created on the remote repository.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-<strong>Always keep things up to date:</strong>
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-```javascript
-$ git pull
-```
+## Learn More
 
-If you are pulling for the first time, git will ask you to execute a command similar to the one listed for push.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-<strong>Wrapping up:</strong>
-
-After finishing your work, and the branch is ready to merge with master, execute the following:
-
-```javascript
-$ git checkout master
-```
-
-and then
-
-```javascript
-$ git merge <branch_name>
-```
-
-<strong>Delete branch locally</strong>
-
-```javascript
-$ git branch -d localBranchName
-```
-
-<strong>Delete branch remotely</strong>
-
-```javascript
-$ git push origin --delete remoteBranchName
-```
-
-More about can be found in the link on the references section.
-
-<br/>
-
-<h2>📝 <strong>References</strong></h2>
-<ol>    
-  <li>
-    <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository">
-        Github - Configuring branches and merges in your repository
-    </a>
-  </li>
-</ol>
-<br/>
-
-<h2>🔐 <strong>License</strong></h2>
-<p>Copyright © 2021 - This project is <a href="./LICENSE">MIT</a> licensed.</p>
+To learn React, check out the [React documentation](https://reactjs.org/).
