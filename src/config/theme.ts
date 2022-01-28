@@ -1,8 +1,5 @@
-export default {
-    typography: {
-        fontFamily: 'Nunito Sans, sans-serif',
-        button: {
-            textTransform: 'none',
-        },
-    },
-};
+import { createTheme } from '@mui/material/styles';
+
+const theme = createTheme({});
+
+export default theme;

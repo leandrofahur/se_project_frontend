@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from '@mui/material/styles';
+// import theme from '../src/config/theme';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -12,4 +13,10 @@ export const parameters = {
 };
 
 // https://storybook.js.org/docs/react/writing-stories/decorators
-export const decorators = [(Story) => <ThemeProvider>{Story()}</ThemeProvider>];
+export const decorators = [
+    (Story) => (
+        <ThemeProvider>
+            <Story />
+        </ThemeProvider>
+    ),
+];
