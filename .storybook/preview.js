@@ -1,6 +1,6 @@
 import React from 'react';
-import { ThemeProvider } from '@mui/material/styles';
-// import theme from '../src/config/theme';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider as Emotion10ThemeProvider } from 'emotion-theming';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -12,11 +12,16 @@ export const parameters = {
     },
 };
 
-// https://storybook.js.org/docs/react/writing-stories/decorators
-export const decorators = [
-    (Story) => (
-        <ThemeProvider>
-            <Story />
-        </ThemeProvider>
-    ),
-];
+const defaultTheme = createTheme(); // or your custom theme
+
+const withThemeProvider = (Story, context) => {
+    return (
+        <Emotion10ThemeProvider theme={defaultTheme}>
+            <ThemeProvider theme={defaultTheme}>
+                <Story {...context} />
+            </ThemeProvider>
+        </Emotion10ThemeProvider>
+    );
+};
+
+export const decorators = [withThemeProvider];

@@ -1,3 +1,6 @@
+const path = require('path');
+const toPath = (filePath) => path.join(process.cwd(), filePath);
+
 module.exports = {
     stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
     addons: [
@@ -10,6 +13,7 @@ module.exports = {
                 configureJSX: true,
             },
         },
+        'storybook-addon-material-ui',
     ],
     framework: '@storybook/react',
     core: {
@@ -17,5 +21,18 @@ module.exports = {
     },
     typescript: {
         check: true,
+    },
+    webpackFinal: async (config) => {
+        return {
+            ...config,
+            resolve: {
+                ...config.resolve,
+                alias: {
+                    ...config.resolve.alias,
+                    '@emotion/core': toPath('node_modules/@emotion/react'),
+                    'emotion-theming': toPath('node_modules/@emotion/react'),
+                },
+            },
+        };
     },
 };
