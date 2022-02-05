@@ -12,9 +12,9 @@ export default function Header({}: HeaderProps) {
         <AppBar color="transparent" elevation={0}>
             <Toolbar>
                 <Button>
-                    <Typography variant="h1">Title</Typography>
+                    <Typography variant="h1">LOGO</Typography>
                 </Button>
-                <Tabs>
+                <Tabs value={0} TabIndicatorProps={{ style: { backgroundColor: 'red' } }}>
                     <Tab label="Shop" />
                     <Tab label="Contact us" />
                 </Tabs>
