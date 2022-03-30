@@ -1,29 +1,27 @@
 <template>
   <header>
-    <img src="../assets/icons/logo.jpeg" />
+    <a><img src="../assets/icons/logo.jpeg" /></a>
     <nav>
-      <div>
-        <ul>
-          <li><a href="#women">Women</a></li>
-          <li><a href="#men">Men</a></li>
-          <li><a href="#sales">Sales</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <ul>
-          <li>
-            <a href="#"><img src="../assets/icons/user_circle.svg" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../assets/icons/heart.svg" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../assets/icons/cart.svg" /></a>
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <li><a href="#women">Women</a></li>
+        <li><a href="#men">Men</a></li>
+        <li><a href="#sales">Sales</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
+    <div>
+      <ul>
+        <li>
+          <a href="#"><img src="../assets/icons/user_circle.svg" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="../assets/icons/heart.svg" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="../assets/icons/cart.svg" /></a>
+        </li>
+      </ul>
+    </div>
   </header>
 </template>
 
@@ -38,7 +36,7 @@ export default {
 header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-content: center;
   align-items: center;
 
