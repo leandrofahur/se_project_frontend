@@ -1,19 +1,11 @@
 <template>
-  <NavbarComponent />
-
-  <FooterComponent />
+  <router-view />
 </template>
 
 <script>
-import NavbarComponent from "./components/NavbarComponent.vue";
-import FooterComponent from "./components/FooterComponent.vue";
-
 export default {
   name: "App",
-  components: {
-    NavbarComponent,
-    FooterComponent,
-  },
+  components: {},
 };
 </script>
 
@@ -26,7 +18,7 @@ export default {
 
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: #fff;
+  background-color: #1a1a1a;
   color: #333;
   line-height: 1.6;
 }

@@ -3,14 +3,14 @@
     <div class="container">
       <nav class="row align-items-center justify-content-space-between">
         <div class="col">
-          <a class="navbar-brand logo" href="#"
+          <a class="navbar-brand logo" href="/"
             ><img src="../assets/icons/logo.jpeg"
           /></a>
         </div>
         <div class="col">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Women</a>
@@ -80,24 +80,3 @@ a:hover {
   transform: scale(1.1);
 }
 </style>
-
-<!-- <ul>
-        <li><a href="#women">Women</a></li>
-        <li><a href="#men">Men</a></li>
-        <li><a href="#sales">Sales</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <div>
-      <ul>
-        <li>
-          <a href="#"><img src="../assets/icons/user_circle.svg" /></a>
-        </li>
-        <li>
-          <a href="#"><img src="../assets/icons/heart.svg" /></a>
-        </li>
-        <li>
-          <a href="#"><img src="../assets/icons/cart.svg" /></a>
-        </li>
-      </ul>
-    </div> -->
