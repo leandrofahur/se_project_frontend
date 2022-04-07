@@ -1,6 +1,6 @@
 <template>
   <NavbarComponent />
-  <HeroComponent />
+  <HeroComponent filename="hero01.png" />
   <FooterComponent />
 </template>
 

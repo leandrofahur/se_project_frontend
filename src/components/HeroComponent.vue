@@ -1,13 +1,19 @@
 <template>
-  <div class="container">
-    <img src="../assets/images/hero03.png" style=" width=100%;" />
-  </div>
+  <img :src="require(`@/assets/images/${filename}`)" />
 </template>
 
 <script>
 export default {
   name: "HeroComponent",
+  props: {
+    filename: String,
+  },
 };
 </script>
 
-<style></style>
+<style scoped>
+img {
+  width: 100%;
+  height: 100%;
+}
+</style>
