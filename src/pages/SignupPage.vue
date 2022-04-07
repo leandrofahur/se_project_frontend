@@ -1,8 +1,17 @@
 <template>
   <NavbarComponent />
-  <HeroComponent filename="hero01.png" />
+  <HeroComponent filename="hero02.png" />
   <div class="container justify-content-center">
     <form>
+      <div class="form-ctrl">
+        <label class="form-label">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="email"
+          placeholder="Email"
+        />
+      </div>
       <div class="form-ctrl">
         <label class="form-label">E-mail</label>
         <input
@@ -21,10 +30,18 @@
           placeholder="Password"
         />
       </div>
+      <div class="form-ctrl">
+        <label class="form-label">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          placeholder="Confirm Password"
+        />
+      </div>
       <button type="submit" class="btn btn-primary">Create Account</button>
-      <p class="pt-3 text-center">
-        Need to sign up? <a href="/login">Click here</a>
-      </p>
+
+      <p class="pt-3 text-center">Already a user? <a href="/login">login</a></p>
     </form>
   </div>
   <FooterComponent />
@@ -36,7 +53,7 @@ import FooterComponent from "../components/FooterComponent.vue";
 import HeroComponent from "../components/HeroComponent.vue";
 
 export default {
-  name: "LoginPage",
+  name: "SignupPage",
   components: {
     NavbarComponent,
     FooterComponent,
@@ -71,36 +88,3 @@ button {
   width: 100%;
 }
 </style>
-
-//
-<form>
-//       <div class="form-ctrl mt-2">
-//         <label class="form-label">Username</label>
-//         <input
-//           type="text"
-//           class="form-control"
-//           name="username"
-//           placeholder="Username"
-//         />
-//       </div>
-//       <div class="form-ctrl">
-//         <label class="form-label">E-mail</label>
-//         <input
-//           type="email"
-//           class="form-control"
-//           name="email"
-//           placeholder="Email"
-//         />
-//       </div>
-//       <div class="form-ctrl">
-//         <label class="form-label">Username</label>
-//         <input
-//           type="text"
-//           class="form-control"
-//           name="username"
-//           placeholder="Username"
-//         />
-//       </div>
-//       <button type="submit" class="btn btn-primary">Create Account</button>
-//       <p>Already a user? <a>Login</a></p>
-//     </form>
