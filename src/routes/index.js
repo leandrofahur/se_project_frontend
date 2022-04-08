@@ -17,7 +17,7 @@ const routes = [
 
   {
     path: "/signup",
-    name: "SignupPagePage",
+    name: "SignupPage",
     component: SignupPage,
   },
 ];

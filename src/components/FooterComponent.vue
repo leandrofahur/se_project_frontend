@@ -63,6 +63,7 @@ export default {
 footer {
   height: 320px;
   background-color: #1a1a1a;
+  padding-top: 30px;
 }
 
 ul {

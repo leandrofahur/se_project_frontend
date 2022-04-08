@@ -18,7 +18,7 @@ export default {
 
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: #1a1a1a;
+  background-color: #e5e5e5;
   color: #333;
   line-height: 1.6;
 }

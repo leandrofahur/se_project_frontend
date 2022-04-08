@@ -23,7 +23,7 @@
       </div>
       <button type="submit" class="btn btn-primary">Create Account</button>
       <p class="pt-3 text-center">
-        Need to sign up? <a href="/login">Click here</a>
+        Need to sign up? <a href="/signup">Click here</a>
       </p>
     </form>
   </div>
@@ -48,7 +48,7 @@ export default {
 <style scoped>
 form {
   padding: 100px 30px 100px 30px;
-  width: 450px;
+  width: 400px;
   height: 100%;
   margin: auto;
 }
@@ -57,50 +57,18 @@ form {
   margin: 40px 0;
 }
 
-label,
-p {
-  color: #f9fbe7;
-}
-
 a {
   text-decoration: underline;
 }
 
 button {
   background-color: #ad1457;
+  border: 1px solid #ad1457;
   width: 100%;
 }
-</style>
 
-//
-<form>
-//       <div class="form-ctrl mt-2">
-//         <label class="form-label">Username</label>
-//         <input
-//           type="text"
-//           class="form-control"
-//           name="username"
-//           placeholder="Username"
-//         />
-//       </div>
-//       <div class="form-ctrl">
-//         <label class="form-label">E-mail</label>
-//         <input
-//           type="email"
-//           class="form-control"
-//           name="email"
-//           placeholder="Email"
-//         />
-//       </div>
-//       <div class="form-ctrl">
-//         <label class="form-label">Username</label>
-//         <input
-//           type="text"
-//           class="form-control"
-//           name="username"
-//           placeholder="Username"
-//         />
-//       </div>
-//       <button type="submit" class="btn btn-primary">Create Account</button>
-//       <p>Already a user? <a>Login</a></p>
-//     </form>
+button:hover {
+  background-color: #9c114d;
+  border: 1px solid #9c114d;
+}
+</style>

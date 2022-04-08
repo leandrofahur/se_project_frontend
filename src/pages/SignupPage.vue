@@ -65,7 +65,7 @@ export default {
 <style scoped>
 form {
   padding: 100px 30px 100px 30px;
-  width: 450px;
+  width: 400px;
   height: 100%;
   margin: auto;
 }
@@ -74,17 +74,18 @@ form {
   margin: 40px 0;
 }
 
-label,
-p {
-  color: #f9fbe7;
-}
-
 a {
   text-decoration: underline;
 }
 
 button {
   background-color: #ad1457;
+  border: 1px solid #ad1457;
   width: 100%;
+}
+
+button:hover {
+  background-color: #9c114d;
+  border: 1px solid #9c114d;
 }
 </style>
