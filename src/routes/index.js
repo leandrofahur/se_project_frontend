@@ -5,6 +5,7 @@ import SignupPage from "../pages/SignupPage";
 import ForgotPasswordPage from "../pages/ForgotPasswordPage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
 import ContactUsPage from "../pages/ContactUsPage";
+import UserProfilePage from "../pages/UserProfilePage";
 
 const routes = [
   {
@@ -40,6 +41,12 @@ const routes = [
     path: "/contactus",
     name: "ContactUsPage",
     component: ContactUsPage,
+  },
+
+  {
+    path: "/userprofile",
+    name: "UserProfilePage",
+    component: UserProfilePage,
   },
 
 ];
