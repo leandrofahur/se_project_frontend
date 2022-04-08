@@ -21,7 +21,9 @@
           placeholder="Password"
         />
       </div>
-      <button type="submit" class="btn btn-primary">Create Account</button>
+      <button type="submit" class="btn btn-primary" v-on:click="handleClick">
+        Create Account
+      </button>
       <p class="pt-3 text-center">
         Need to sign up? <a href="/signup">Click here</a>
       </p>
@@ -41,6 +43,12 @@ export default {
     NavbarComponent,
     FooterComponent,
     HeroComponent,
+  },
+  methods: {
+    handleClick: function (event) {
+      event.preventDefault();
+      console.log("Remember me Sung Ah");
+    },
   },
 };
 </script>
