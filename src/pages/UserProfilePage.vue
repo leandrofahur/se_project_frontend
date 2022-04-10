@@ -26,7 +26,7 @@
               type="text"
               class="form-control"
               name="username"
-              placeholder=""
+              
             />
           </div>
 
@@ -87,7 +87,7 @@
         </form>
       </div>
 
-      <br>
+      <br />
       <div class="col">
         <form>
           <div class="form-ctrl">
@@ -106,7 +106,7 @@
               type="email"
               class="form-control"
               name="email"
-              placeholder="somewhere@gmail.com"
+              placeholder=""
             />
           </div>
 
@@ -152,6 +152,7 @@
         </form>
       </div>
     </div>
+    <button type="submit" class="btn btn-primary">Save Profile</button>
   </div>
 
   <FooterComponent />
@@ -161,6 +162,7 @@
 import NavbarComponent from "../components/NavbarComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
 import HeroComponent from "../components/HeroComponent.vue";
+import UserDataService from "../services/UserDataService";
 
 export default {
   name: "UserProfilePage",
@@ -169,6 +171,38 @@ export default {
     FooterComponent,
     HeroComponent,
   },
+
+  data() {
+    return {
+      user: null,
+      userName: "",
+    };
+  },
+
+  methods: {
+    retriveUser() {
+      
+      var id = localStorage.getItem("id");
+      UserDataService.get(id)
+        .then((response) => {
+          this.user = response.data;
+          //this.userName = this.user.userName;
+          console.log(this.user);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+
+    displayUserName() {
+      return this.userName;
+    },
+  },
+  mounted() {
+    this.retriveUser();
+  },
+
+  computed: {},
 };
 </script>
 
@@ -206,7 +240,9 @@ a {
 button {
   background-color: #ad1457;
   border: 1px solid #ad1457;
-  width: 100%;
+  width: 31%;
+  margin-left: 440px;
+  margin-bottom: 50px;
 }
 
 button:hover {
