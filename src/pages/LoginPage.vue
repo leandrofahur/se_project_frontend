@@ -4,29 +4,31 @@
   <div class="container justify-content-center">
     <form>
       <div class="form-ctrl">
-        <label class="form-label">E-mail</label>
+        <label class="form-label" for="email">E-mail</label>
         <input
           type="email"
           class="form-control"
           name="email"
-          placeholder="Email"
+          v-model="userLoginRequest.email"
         />
       </div>
       <div class="form-ctrl">
-        <label class="form-label">Password</label>
+        <label class="form-label" for="password">Password</label>
         <input
           type="password"
           class="form-control"
           name="password"
-          placeholder="Password"
+          v-model="userLoginRequest.password"
         />
       </div>
-      <button type="submit" class="btn btn-primary" v-on:click="handleClick">
-        Create Account
+      <button type="submit" class="btn btn-primary" @click="login">
+        Login
       </button>
       <p class="pt-3 text-center">
         Need to sign up? <a href="/signup">Click here</a>
       </p>
+      <br /><br />
+      <p>{{ message }}</p>
     </form>
   </div>
   <FooterComponent />
@@ -36,6 +38,7 @@
 import NavbarComponent from "../components/NavbarComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
 import HeroComponent from "../components/HeroComponent.vue";
+import LoginService from "../services/LoginService";
 
 export default {
   name: "LoginPage",
@@ -44,11 +47,31 @@ export default {
     FooterComponent,
     HeroComponent,
   },
+  data() {
+    return {
+      userLoginRequest: { email: "", password: "" },
+      message: "",
+    };
+  },
   methods: {
-    handleClick: function (event) {
-      event.preventDefault();
-      console.log("Remember me Sung Ah");
+    login(ev) {
+      ev.preventDefault();
+      LoginService.login(this.userLoginRequest)
+        .then((reponse) => {
+          var user = reponse.data;
+          console.log(user);
+          localStorage.setItem("email", user.email);
+          this.$router.push({name:"HomePage"});
+        })
+        .catch((e) => {
+          this.userLoginRequest.email = "";
+          this.userLoginRequest.password = "";
+          this.message = e.reponse.data.message;
+        });
     },
+  },
+  mounted() {
+    this.message = "";
   },
 };
 </script>
