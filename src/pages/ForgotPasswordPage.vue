@@ -11,10 +11,10 @@
           type="email"
           class="form-control"
           name="email"
-          placeholder="somewhere@gmail.com"
+          v-model="userEmail.email"
         />
       </div>
-      <button type="submit" class="btn btn-primary" v-on:click="handleClick">
+      <button type="submit" class="btn btn-primary" @click="handleClick">
         Submit
       </button>
       <p class="pt-3 text-center">
@@ -29,6 +29,7 @@
 import NavbarComponent from "../components/NavbarComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
 import HeroComponent from "../components/HeroComponent.vue";
+import UserDataService from "../services/UserDataService";
 
 export default {
   name: "ForgotPasswordPage",
@@ -37,25 +38,41 @@ export default {
     FooterComponent,
     HeroComponent,
   },
+  data() {
+    return {
+      userEmail: {email: ""},
+    };
+  },
+
   methods: {
-    handleClick: function (event) {
-      event.preventDefault();
-      console.log("Remember me HanDo");
+    handleClick(e) {
+      e.preventDefault();
+      console.log(this.userEmail);
+      UserDataService.forgotPasswordPost(this.userEmail)
+        .then((response) => {
+          var result = response.data;
+          localStorage.setItem("userEmail", this.userEmail.email)
+          console.log(result);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
   },
+
+  mounted() {},
 };
 </script>
 
 <style scoped>
-
 p {
   text-align: center;
 }
 
 .q {
-   font-size: 19.87px;
-   font-style: italic;
-   font-weight: bold;
+  font-size: 19.87px;
+  font-style: italic;
+  font-weight: bold;
 }
 
 form {

@@ -26,7 +26,7 @@
               type="text"
               class="form-control"
               name="username"
-              
+              v-model="updateUserInfo.userName"
             />
           </div>
 
@@ -36,7 +36,7 @@
               type="text"
               class="form-control"
               name="lastname"
-              placeholder=""
+              v-model="updateUserInfo.lastName"
             />
           </div>
 
@@ -46,7 +46,7 @@
               type="text"
               class="form-control"
               name="address1"
-              placeholder=""
+              v-model="userAddress.addressLine1"
             />
           </div>
 
@@ -56,7 +56,7 @@
               type="text"
               class="form-control"
               name="province"
-              placeholder=""
+              v-model="userAddress.province"
             />
           </div>
 
@@ -66,7 +66,7 @@
               type="text"
               class="form-control"
               name="country"
-              placeholder=""
+              v-model="userAddress.country"
             />
           </div>
 
@@ -77,12 +77,18 @@
               class="form-control"
               name="phonenumber"
               placeholder="(###) ### - ####"
+              v-model="userPnone.number"
             />
           </div>
 
           <div class="form-ctrl">
             <label class="form-label">CVC</label>
-            <input type="text" class="form-control" name="cvc" placeholder="" />
+            <input
+              type="text"
+              class="form-control"
+              name="cvc"
+              v-model="userPayment.cvc"
+            />
           </div>
         </form>
       </div>
@@ -96,7 +102,7 @@
               type="text"
               class="form-control"
               name="firstname"
-              placeholder=""
+              v-model="updateUserInfo.firstName"
             />
           </div>
 
@@ -106,7 +112,7 @@
               type="email"
               class="form-control"
               name="email"
-              placeholder=""
+              v-model="updateUserInfo.email"
             />
           </div>
 
@@ -116,7 +122,7 @@
               type="text"
               class="form-control"
               name="city"
-              placeholder=""
+              v-model="userAddress.city"
             />
           </div>
 
@@ -126,7 +132,7 @@
               type="text"
               class="form-control"
               name="postalcode"
-              placeholder=""
+              v-model="userAddress.postalCode"
             />
           </div>
 
@@ -136,7 +142,7 @@
               type="text"
               class="form-control"
               name="address2"
-              placeholder=""
+              v-model="userAddress.addressLine2"
             />
           </div>
 
@@ -146,13 +152,19 @@
               type="text"
               class="form-control"
               name="cardnumber"
-              placeholder=""
+              v-model="userPayment.cardNumber"
             />
           </div>
         </form>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Save Profile</button>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      @click="updateUserInfomations"
+    >
+      Save Profile
+    </button>
   </div>
 
   <FooterComponent />
@@ -174,30 +186,143 @@ export default {
 
   data() {
     return {
+      id: null,
       user: null,
-      userName: "",
+      // userName: "",
+      updateUserInfo: {
+        firstName: "",
+        lastName: "",
+        userName: "",
+        // password: "",
+        // is_admin: false,
+        email: "",
+      },
+
+      userAddress: {
+        addressLine1: "",
+        addressLine2: "",
+        city: "",
+        province: "",
+        country: "",
+        postalCode: "",
+      },
+
+      userPayment: { cardNumber: "", cvc: "" },
+
+      userPnone: { number: "" },
     };
   },
 
   methods: {
     retriveUser() {
-      
-      var id = localStorage.getItem("id");
-      UserDataService.get(id)
+      this.id = localStorage.getItem("id");
+      UserDataService.getUser(this.id)
         .then((response) => {
           this.user = response.data;
-          //this.userName = this.user.userName;
+          this.updateUserInfo.firstName = this.user.firstName;
+          this.updateUserInfo.lastName = this.user.lastName;
+          this.updateUserInfo.userName = this.user.userName;
+          this.updateUserInfo.email = this.user.email;
           console.log(this.user);
+          console.log(this.userName);
         })
         .catch((e) => {
           console.log(e);
         });
+
+      // UserDataService.getAddress(this.id)
+      //   .then((reponse) => {
+      //     this.userAddress = reponse.data;
+      //     this.userAddress.addressLine1 = this.userAddress.addressLine1;
+      //     this.userAddress.addressLine2 = this.userAddress.addressLine2;
+      //     this.userAddress.city = this.userAddress.city;
+      //     this.userAddress.province = this.userAddress.province;
+      //     this.userAddress.country = this.userAddress.country;
+      //     this.userAddress.postalCode = this.userAddress.postalCode;
+      //     console.log(this.userAddress);
+      //   })
+      //   .catch((e) => {
+      //     console.log(e);
+      //   });
     },
 
     displayUserName() {
       return this.userName;
     },
+
+    updateUserInfomations(ev) {
+      ev.preventDefault();
+      UserDataService.userInfoPut(this.id, this.updateUserInfo)
+        .then((response) => {
+          var userInfo = response.data;
+          console.log(userInfo);
+        })
+        .catch((e) => {
+          this.updateUserInfo.firstName = "";
+          this.updateUserInfo.lastName = "";
+          this.updateUserInfo.userName = "";
+          // this.updateUserInfo.password = "";
+          // this.updateUserInfo.is_admin = false;
+          this.updateUserInfo.email = "";
+          console.log(e);
+        });
+
+      UserDataService.userAddressPost(this.id, this.userAddress)
+        .then((reponse) => {
+          var userAddress = reponse.data;
+          console.log(userAddress);
+        })
+        .catch((e) => {
+          this.userAddress.addressLine1 = "";
+          this.userAddress.addressLine2 = "";
+          this.userAddress.city = "";
+          this.userAddress.province = "";
+          this.userAddress.country = "";
+          this.userAddress.postalCode = "";
+          console.log(e);
+        });
+
+      UserDataService.userPaymentPost(this.id, this.userPayment)
+        .then((reponse) => {
+          var payment = reponse.data;
+          console.log(payment);
+        })
+        .catch((e) => {
+          this.userPayment.cardNumber = "";
+          this.userPayment.cvc = "";
+          console.log(e);
+        });
+
+      UserDataService.userPhonePost(this.id, this.userPnone)
+        .then((reponse) => {
+          var phone = reponse.data;
+          console.log(phone);
+        })
+        .catch((e) => {
+          this.userPnone.number = "";
+          console.log(e);
+        });
+    },
+
+    // putUserAddress(ev) {
+    //   ev.preventDefault();
+    //   UserDataService.userAddressPut(this.id, this.userAddress)
+    //     .then((reponse) => {
+    //       var userAddress = reponse.data;
+    //       console.log(userAddress);
+    //     })
+    //     .catch((e) => {
+    //       this.userAddress.addressLine1 = "";
+    //       this.userAddress.addressLine2 = "";
+    //       this.userAddress.city = "";
+    //       this.userAddress.province = "";
+    //       this.userAddress.country = "";
+    //       this.userAddress.postalCode = "";
+    //       console.log(e);
+    //     });
+    // },
   },
+
   mounted() {
     this.retriveUser();
   },
