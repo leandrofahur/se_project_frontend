@@ -13,12 +13,12 @@
               <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Shopping</a>
+              <a class="nav-link" href="/shopping">Shopping</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
+              <a class="nav-link" href="/contactus">Contact Us</a>
             </li>
-            
+
             <li class="nav-item">
               <a class="nav-link" href="/login"
                 ><img src="../assets/icons/user_circle.svg"

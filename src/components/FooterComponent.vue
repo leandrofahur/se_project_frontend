@@ -7,15 +7,7 @@
         </li>
         <div class="horizontalDivider"></div>
         <li>
-          <a href="#">Women</a>
-        </li>
-        <div class="horizontalDivider" />
-        <li>
-          <a href="#">Men</a>
-        </li>
-        <div class="horizontalDivider" />
-        <li>
-          <a href="#">Sales</a>
+          <a href="#">Shopping</a>
         </li>
         <div class="horizontalDivider" />
         <li>
