@@ -6,14 +6,14 @@
       <div class="col">
         <br />
         <p class="welcome">WELCOME,</p>
-        <p class="name">HanDo</p>
+        <p class="name">{{ updateUserInfo.userName }}</p>
         <br /><br />
 
         <p><img src="../assets/icons/user_circle_b.svg" />My Profile</p>
         <br />
         <p><img src="../assets/icons/truck.svg" />Order Status</p>
         <br />
-        <p><img src="../assets/icons/logout.svg" />Sign Out</p>
+        <p><a @click="logout"><img src="../assets/icons/logout.svg" />Sign Out</a></p>
         <br />
       </div>
 
@@ -188,6 +188,9 @@ export default {
     return {
       id: null,
       user: null,
+      address: null,
+      payment: null,
+      phone: null,
       // userName: "",
       updateUserInfo: {
         firstName: "",
@@ -230,20 +233,43 @@ export default {
           console.log(e);
         });
 
-      // UserDataService.getAddress(this.id)
-      //   .then((reponse) => {
-      //     this.userAddress = reponse.data;
-      //     this.userAddress.addressLine1 = this.userAddress.addressLine1;
-      //     this.userAddress.addressLine2 = this.userAddress.addressLine2;
-      //     this.userAddress.city = this.userAddress.city;
-      //     this.userAddress.province = this.userAddress.province;
-      //     this.userAddress.country = this.userAddress.country;
-      //     this.userAddress.postalCode = this.userAddress.postalCode;
-      //     console.log(this.userAddress);
-      //   })
-      //   .catch((e) => {
-      //     console.log(e);
-      //   });
+      if (this.id < 4) {
+        UserDataService.getAddress(this.id)
+          .then((reponse) => {
+            this.address = reponse.data;
+            this.userAddress.addressLine1 = this.address.addressLine1;
+            this.userAddress.addressLine2 = this.address.addressLine2;
+            this.userAddress.city = this.address.city;
+            this.userAddress.province = this.address.province;
+            this.userAddress.country = this.address.country;
+            this.userAddress.postalCode = this.address.postalCode;
+            console.log(this.address);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+
+        UserDataService.getPayment(this.id)
+          .then((response) => {
+            this.payment = response.data;
+            this.userPayment.cardNumber = this.payment.cardNumber;
+            this.userPayment.cvc = this.payment.cvc;
+            console.log(this.payment);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+
+        UserDataService.getPhone(this.id)
+          .then((response) => {
+            this.phone = response.data;
+            this.userPnone.number = this.phone.number;
+            console.log(this.phone);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      }
     },
 
     displayUserName() {
@@ -304,23 +330,10 @@ export default {
         });
     },
 
-    // putUserAddress(ev) {
-    //   ev.preventDefault();
-    //   UserDataService.userAddressPut(this.id, this.userAddress)
-    //     .then((reponse) => {
-    //       var userAddress = reponse.data;
-    //       console.log(userAddress);
-    //     })
-    //     .catch((e) => {
-    //       this.userAddress.addressLine1 = "";
-    //       this.userAddress.addressLine2 = "";
-    //       this.userAddress.city = "";
-    //       this.userAddress.province = "";
-    //       this.userAddress.country = "";
-    //       this.userAddress.postalCode = "";
-    //       console.log(e);
-    //     });
-    // },
+    logout(){
+      localStorage.clear();
+      this.$router.push({name:"LoginPage"})
+    }
   },
 
   mounted() {
