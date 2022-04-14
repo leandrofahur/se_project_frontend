@@ -6,6 +6,7 @@ import ForgotPasswordPage from "../pages/ForgotPasswordPage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
 import ContactUsPage from "../pages/ContactUsPage";
 import UserProfilePage from "../pages/UserProfilePage";
+import ShoppingPage from "../pages/ShoppingPage";
 
 const routes = [
   {
@@ -19,7 +20,7 @@ const routes = [
     component: LoginPage,
   },
 
-  { 
+  {
     path: "/signup",
     name: "SignupPage",
     component: SignupPage,
@@ -49,6 +50,11 @@ const routes = [
     component: UserProfilePage,
   },
 
+  {
+    path: "/shopping",
+    name: "ShoppingPage",
+    component: ShoppingPage,
+  },
 ];
 
 const router = createRouter({
