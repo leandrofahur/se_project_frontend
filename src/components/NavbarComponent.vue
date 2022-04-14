@@ -18,11 +18,13 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Contact Us</a>
             </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="/login"
                 ><img src="../assets/icons/user_circle.svg"
               /></a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="#"
                 ><img src="../assets/icons/heart.svg"

@@ -61,7 +61,8 @@ export default {
           var user = reponse.data;
           console.log(user);
           localStorage.setItem("email", user.email);
-          this.$router.push({name:"HomePage"});
+          localStorage.setItem("id", user.id);
+          this.$router.push({name:"UserProfilePage"});
         })
         .catch((e) => {
           this.userLoginRequest.email = "";

@@ -30,16 +30,18 @@
           v-model="userSignupRequest.password"
         />
       </div>
-      <!-- <div class="form-ctrl">
+      <div class="form-ctrl">
         <label class="form-label">Confirm Password</label>
         <input
           type="password"
           class="form-control"
           name="password"
-          placeholder="Confirm Password"
+          v-model="userSignupRequest.confirmPassword"
         />
-      </div> -->
-      <button type="submit" class="btn btn-primary" @click="signup">Create Account</button>
+      </div>
+      <button type="submit" class="btn btn-primary" @click="signup">
+        Create Account
+      </button>
 
       <p class="pt-3 text-center">Already a user? <a href="/login">login</a></p>
       <p>{{ message }}</p>
@@ -64,32 +66,42 @@ export default {
   data() {
     return {
       // userSignupRequest: { userName: "", email: "", password: "", confirmPassword: ""},
-       userSignupRequest: { userName: "", email: "", password: "", id: 0},
+      userSignupRequest: {
+        userName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      },
       message: "",
-     
     };
   },
 
   methods: {
-    
     signup(ev) {
       ev.preventDefault();
-          // signup() {
-    
-      SignupService.signup(this.userSignupRequest)
-        .then((response) => {
-          var user = response.data;
-          console.log(user);
-          localStorage.setItem("id", user.id);
-           this.$router.push({name:"UserProfilePage"});
-        })
-        .catch((e) => {
-          this.userSignupRequest.userName = "";
-          this.userSignupRequest.email = "";
-          this.userSignupRequest.password = "";
-          //this.userSignupRequest.confirmPassword = "",
-          this.message = e.response.data.message;
-        });
+
+      if (
+        this.userSignupRequest.password ===
+        this.userSignupRequest.confirmPassword
+      ) {
+        SignupService.signup(this.userSignupRequest)
+          .then((response) => {
+            var user = response.data;
+            console.log(user);
+            localStorage.setItem("id", user.id);
+            localStorage.setItem("email", user.email);
+            this.$router.push({ name: "UserProfilePage" });
+          })
+          .catch((e) => {
+            this.userSignupRequest.userName = "";
+            this.userSignupRequest.email = "";
+            this.userSignupRequest.password = "";
+            (this.userSignupRequest.confirmPassword = ""),
+              (this.message = e.response.data.message);
+          });
+      } else{
+        this.message = "The password do not match";
+      }
     },
   },
 
@@ -99,8 +111,8 @@ export default {
     // } else{
     //   this.message = "The Password is incorrect";
     // }
-     //this.signup();
-     this.message = "";
+    //this.signup();
+    this.message = "";
   },
 };
 </script>
