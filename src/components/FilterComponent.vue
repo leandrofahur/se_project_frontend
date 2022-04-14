@@ -20,6 +20,7 @@
         value=""
         id="women"
         name="selectedFilter"
+        disabled
       />
       <label class="form-check-label" for="women">Women</label>
     </div>
@@ -30,6 +31,7 @@
         value=""
         id="men"
         name="selectedFilter"
+        disabled
       />
       <label class="form-check-label" for="men">Men</label>
     </div>
@@ -41,7 +43,6 @@
         value=""
         id="range01"
         name="selectedPrice"
-        checked
       />
       <label class="form-check-label" for="range01">$50 - $150</label>
     </div>

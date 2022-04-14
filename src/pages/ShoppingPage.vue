@@ -6,37 +6,79 @@
       <FilterComponent @filters-selected="catchFilterOptions" />
       <div class="col-8">
         <h1 class="text-center" style="margin: 100px 0 0 0">Products</h1>
-        <div v-if="isRange01 === true">
+        <div
+          v-if="
+            isAll === true &&
+            isRange01 === false &&
+            isRange02 === false &&
+            isRange03 === false
+          "
+        >
+          <div class="grid-container">
+            <div :key="product.id" v-for="product in products">
+              <CardComponent
+                :productPic="product.productPic"
+                :productName="product.name"
+                @set-favorite-flag="setFavoriteFlag(product)"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          v-if="
+            isAll === true &&
+            isRange01 === true &&
+            isRange02 === false &&
+            isRange03 === false
+          "
+        >
           <div class="grid-container">
             <div :key="product.id" v-for="product in products">
               <div v-if="product.price <= 150 && product.price >= 50">
                 <CardComponent
                   :productPic="product.productPic"
                   :productName="product.name"
+                  @set-favorite-flag="setFavoriteFlag(product)"
                 />
               </div>
             </div>
           </div>
         </div>
-        <div v-if="isRange02 === true">
+        <div
+          v-if="
+            isAll === true &&
+            isRange01 === false &&
+            isRange02 === true &&
+            isRange03 === false
+          "
+        >
           <div class="grid-container">
             <div :key="product.id" v-for="product in products">
               <div v-if="product.price > 150 && product.price <= 250">
                 <CardComponent
                   :productPic="product.productPic"
                   :productName="product.name"
+                  @set-favorite-flag="setFavoriteFlag(product)"
                 />
               </div>
             </div>
           </div>
         </div>
-        <div v-if="isRange03 === true">
+        <div
+          v-if="
+            isAll === true &&
+            isRange01 === false &&
+            isRange02 === false &&
+            isRange03 === true
+          "
+        >
           <div class="grid-container">
             <div :key="product.id" v-for="product in products">
               <div v-if="product.price > 250">
                 <CardComponent
                   :productPic="product.productPic"
                   :productName="product.name"
+                  @set-favorite-flag="setFavoriteFlag(product)"
                 />
               </div>
             </div>
@@ -94,9 +136,14 @@ export default {
       this.isRange01 = selected.isSelectedPrice[0];
       this.isRange02 = selected.isSelectedPrice[1];
       this.isRange03 = selected.isSelectedPrice[2];
-
-      // console.log(this.isAll, this.isWomen, this.isMen);
-      // console.log(this.isRange01, this.isRange02, this.isRange03);
+    },
+    setFavoriteFlag(product) {
+      if (product.isFavorite === false) {
+        product.isFavorite = true;
+      } else {
+        product.isFavorite = false;
+      }
+      OrderService.putProduct(product.id, product);
     },
   },
 };

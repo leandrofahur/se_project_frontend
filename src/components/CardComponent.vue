@@ -13,7 +13,10 @@
         <button style="background: #1f1f1f; padding: 5px">
           <img src="../assets/icons/cart.svg" />
         </button>
-        <button style="background: #1f1f1f; padding: 5px">
+        <button
+          style="background: #1f1f1f; padding: 5px"
+          @click="$emit('set-favorite-flag', isFavoriteFlag)"
+        >
           <img src="../assets/icons/heart.svg" />
         </button>
       </div>
@@ -27,6 +30,13 @@ export default {
   props: {
     productPic: String,
     productName: String,
+    quantity: String,
+  },
+  methods: {},
+  data() {
+    return {
+      isFavoriteFlag: Boolean,
+    };
   },
 };
 </script>

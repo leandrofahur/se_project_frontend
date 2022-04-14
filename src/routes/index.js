@@ -7,6 +7,7 @@ import ResetPasswordPage from "../pages/ResetPasswordPage";
 import ContactUsPage from "../pages/ContactUsPage";
 import UserProfilePage from "../pages/UserProfilePage";
 import ShoppingPage from "../pages/ShoppingPage";
+import FavoritesPage from "../pages/FavoritesPage";
 
 const routes = [
   {
@@ -54,6 +55,11 @@ const routes = [
     path: "/shopping",
     name: "ShoppingPage",
     component: ShoppingPage,
+  },
+  {
+    path: "/favorites",
+    name: "FavoritesPage",
+    component: FavoritesPage,
   },
 ];
 
