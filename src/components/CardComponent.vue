@@ -10,7 +10,10 @@
     <div class="card-body">
       <h3 class="card-title text-center">{{ productName }}</h3>
       <div class="flex-ctrl">
-        <button style="background: #1f1f1f; padding: 5px">
+        <button
+          style="background: #1f1f1f; padding: 5px"
+          @click="$emit('set-cart-flag', isCartFlag)"
+        >
           <img src="../assets/icons/cart.svg" />
         </button>
         <button

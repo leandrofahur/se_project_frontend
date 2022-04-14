@@ -39,7 +39,7 @@ export default {
       .then((response) => {
         const p = response.data;
         this.products = p;
-        console.log(this.products);
+        // console.log(this.products);
       })
       .catch((e) => console.error(e.message));
   },

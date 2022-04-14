@@ -20,6 +20,7 @@
                 :productPic="product.productPic"
                 :productName="product.name"
                 @set-favorite-flag="setFavoriteFlag(product)"
+                @set-cart-flag="setCart(product)"
               />
             </div>
           </div>
@@ -39,6 +40,7 @@
                   :productPic="product.productPic"
                   :productName="product.name"
                   @set-favorite-flag="setFavoriteFlag(product)"
+                  @set-cart-flag="setCart(product)"
                 />
               </div>
             </div>
@@ -59,6 +61,7 @@
                   :productPic="product.productPic"
                   :productName="product.name"
                   @set-favorite-flag="setFavoriteFlag(product)"
+                  @set-cart-flag="setCart(product)"
                 />
               </div>
             </div>
@@ -79,6 +82,7 @@
                   :productPic="product.productPic"
                   :productName="product.name"
                   @set-favorite-flag="setFavoriteFlag(product)"
+                  @set-cart-flag="setCart(product)"
                 />
               </div>
             </div>
@@ -124,7 +128,7 @@ export default {
       .then((response) => {
         const p = response.data;
         this.products = p;
-        console.log(this.products);
+        // console.log(this.products);
       })
       .catch((e) => console.error(e.message));
   },
