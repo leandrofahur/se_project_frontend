@@ -4,6 +4,7 @@ import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 import ShoppingPage from "../pages/ShoppingPage";
 import ProductPage from "../pages/ProductPage";
+import CartPage from "../pages/CartPage";
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     path: "/product/:id",
     name: "ProductPage",
     component: ProductPage,
+  },
+  {
+    path: "/cart",
+    name: "CartPage",
+    component: CartPage,
   },
 ];
 

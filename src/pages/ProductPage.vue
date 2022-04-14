@@ -9,6 +9,11 @@
   </div>
   <div v-if="product!==null">
       <img :src="require(`@/assets/images/${product.imgDir}`)" />
+  </div>
+  <div v-if="product!==null">
+    <button v-on:click="addToCart()">
+      Add to cart
+    </button>
   </div>    
   <FooterComponent />
 </template>
@@ -18,6 +23,7 @@ import NavbarComponent from "../components/NavbarComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
 import HeroComponent from "../components/HeroComponent.vue";
 import ProductDataService from "../services/ProductsDataService";
+import CartDataService from "../services/CartDataService";
 
 export default {
   data(){
@@ -40,6 +46,10 @@ export default {
               console.log(response.data);
             })
           .catch((err)=>(console.log(err))); 
+      },
+      addToCart(){
+        CartDataService.post(1,this.id,1);
+        console.log("Hey");
       }
   },
   props: {
