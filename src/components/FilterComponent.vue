@@ -41,6 +41,7 @@
         value=""
         id="range01"
         name="selectedPrice"
+        checked
       />
       <label class="form-check-label" for="range01">$50 - $150</label>
     </div>

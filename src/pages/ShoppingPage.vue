@@ -6,12 +6,40 @@
       <FilterComponent @filters-selected="catchFilterOptions" />
       <div class="col-8">
         <h1 class="text-center" style="margin: 100px 0 0 0">Products</h1>
-        <div class="grid-container">
-          <div :key="product.id" v-for="product in products">
-            <CardComponent
-              :productPic="product.productPic"
-              :productName="product.name"
-            />
+        <div v-if="isRange01 === true">
+          <div class="grid-container">
+            <div :key="product.id" v-for="product in products">
+              <div v-if="product.price <= 150 && product.price >= 50">
+                <CardComponent
+                  :productPic="product.productPic"
+                  :productName="product.name"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-if="isRange02 === true">
+          <div class="grid-container">
+            <div :key="product.id" v-for="product in products">
+              <div v-if="product.price > 150 && product.price <= 250">
+                <CardComponent
+                  :productPic="product.productPic"
+                  :productName="product.name"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-if="isRange03 === true">
+          <div class="grid-container">
+            <div :key="product.id" v-for="product in products">
+              <div v-if="product.price > 250">
+                <CardComponent
+                  :productPic="product.productPic"
+                  :productName="product.name"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -41,6 +69,12 @@ export default {
     return {
       products: Array,
       categories: Array,
+      isAll: true,
+      isWomen: Boolean,
+      isMen: Boolean,
+      isRange01: true,
+      isRange02: Boolean,
+      isRange03: Boolean,
     };
   },
   mounted() {
@@ -51,18 +85,18 @@ export default {
         console.log(this.products);
       })
       .catch((e) => console.error(e.message));
-
-    // OrderService.getAllCategories()
-    //   .then((response) => {
-    //     const p = response.data;
-    //     this.categories = p;
-    //     // console.log(this.categories);
-    //   })
-    //   .catch((e) => console.error(e.message));
   },
   methods: {
     catchFilterOptions(selected) {
-      console.log(selected);
+      this.isAll = selected.isSelectedFilter[0];
+      this.isWomen = selected.isSelectedFilter[1];
+      this.isMen = selected.isSelectedFilter[2];
+      this.isRange01 = selected.isSelectedPrice[0];
+      this.isRange02 = selected.isSelectedPrice[1];
+      this.isRange03 = selected.isSelectedPrice[2];
+
+      // console.log(this.isAll, this.isWomen, this.isMen);
+      // console.log(this.isRange01, this.isRange02, this.isRange03);
     },
   },
 };
