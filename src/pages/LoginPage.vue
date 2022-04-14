@@ -27,6 +27,9 @@
       <p class="pt-3 text-center">
         Need to sign up? <a href="/signup">Click here</a>
       </p>
+      <p class="pt-3 text-center">
+        Forgot your password? <a href="/forgotpassword">Click here</a>
+      </p>
       <br /><br />
       <p>{{ message }}</p>
     </form>
@@ -62,7 +65,7 @@ export default {
           console.log(user);
           localStorage.setItem("email", user.email);
           localStorage.setItem("id", user.id);
-          this.$router.push({name:"UserProfilePage"});
+          this.$router.push({ name: "UserProfilePage" });
         })
         .catch((e) => {
           this.userLoginRequest.email = "";
