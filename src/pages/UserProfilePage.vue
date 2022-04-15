@@ -323,6 +323,7 @@ export default {
         .then((reponse) => {
           var phone = reponse.data;
           console.log(phone);
+          this.$router.push({name:"HomePage"})
         })
         .catch((e) => {
           this.userPnone.number = "";
@@ -333,6 +334,10 @@ export default {
     logout(){
       localStorage.clear();
       this.$router.push({name:"LoginPage"})
+    },
+
+    profile(){
+      this.$router.push({name:"UserProfilePage"})
     }
   },
 
