@@ -9,6 +9,8 @@ import UserProfilePage from "../pages/UserProfilePage";
 import ShoppingPage from "../pages/ShoppingPage";
 import FavoritesPage from "../pages/FavoritesPage";
 import CartPage from "../pages/CartPage";
+import InvoicePage from "../pages/InvoicePage";
+import SummaryPage from "../pages/SummaryPage";
 
 const routes = [
   {
@@ -66,6 +68,17 @@ const routes = [
     path: "/cart",
     name: "CartPage",
     component: CartPage,
+  },
+  {
+    path: "/invoice",
+    name: "InvoicePage",
+    component: InvoicePage,
+  },
+
+  {
+    path: "/summary",
+    name: "SummaryPage",
+    component: SummaryPage,
   },
 ];
 

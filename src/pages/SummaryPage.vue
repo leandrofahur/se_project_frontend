@@ -1,15 +1,25 @@
 <template>
   <NavbarComponent />
-  <div class="container justify-center">
-    <div class="grid-container">
-      <div v-for="product in products" :key="product.id">
-        <CardComponent
-          :productPic="product.productPic"
-          :productName="product.name"
-        />
-      </div>
+  <div class="container">
+    <div class="flango">
+      <ul class="list-group list-group-flush">
+        <div v-for="product in products" :key="product.id">
+          <li class="list-group-item flito">
+            <div class="catupily">
+              <img
+                :src="require(`@/assets/images/products/${product.productPic}`)"
+                class="card-img-top mt-3"
+              />
+              <p>{{ product.name }}</p>
+            </div>
+            <span class="badge bg-primary rounded-pill"
+              >${{ product.price }}</span
+            >
+          </li>
+        </div>
+        <a class="btn btn-primary m-3" href="/invoice"> GENERATE INVOICE </a>
+      </ul>
     </div>
-    <a class="btn btn-primary m-3" href="/summary"> CHECKOUT </a>
   </div>
   <FooterComponent />
 </template>
@@ -17,16 +27,14 @@
 <script>
 import NavbarComponent from "../components/NavbarComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
-import CardComponent from "../components/CardComponent.vue";
 import CartService from "../services/CartService";
 import OrderService from "../services/OrderService";
 
 export default {
-  name: "CartPage",
+  name: "SummaryPage",
   components: {
     NavbarComponent,
     FooterComponent,
-    CardComponent,
   },
   data() {
     return {
@@ -58,12 +66,28 @@ export default {
 </script>
 
 <style scoped>
-.grid-container {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
+img {
+  width: 50px;
+  height: 50px;
+}
+
+.flango {
+  margin: 50px;
+}
+
+.flito {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
+}
+
+.catupily {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.catupily p {
+  margin: 10px 0 0 0;
 }
 </style>
