@@ -2,8 +2,8 @@
   <NavbarComponent />
   <div ref="content">
     <div class="container">
-      <div class="flango">
-        <ul class="list-group list-group-flush" id="myList">
+      <div class="flango" id="myList">
+        <ul class="list-group list-group-flush">
           <div v-for="product in products" :key="product.id">
             <li class="list-group-item flito">
               <div class="catupily">

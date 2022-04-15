@@ -14,11 +14,13 @@
           <div class="grid-container">
             <div :key="product.id" v-for="product in products">
               <CardComponent
+                :id="products.id"
                 :productPic="product.productPic"
                 :productName="product.name"
                 @set-favorite-flag="setFavoriteFlag(product)"
                 @set-cart-flag="addProductToCart(product)"
               />
+              <a :href="'/product/' + product.id">Details</a>
             </div>
           </div>
         </div>
@@ -36,6 +38,7 @@
                   @set-favorite-flag="setFavoriteFlag(product)"
                   @set-cart-flag="addProductToCart(product)"
                 />
+                <a :href="'/product/' + product.id">Details</a>
               </div>
             </div>
           </div>
@@ -54,6 +57,7 @@
                   @set-favorite-flag="setFavoriteFlag(product)"
                   @set-cart-flag="addProductToCart(product)"
                 />
+                <a :href="'/product/' + product.id">Details</a>
               </div>
             </div>
           </div>
@@ -72,6 +76,7 @@
                   @set-favorite-flag="setFavoriteFlag(product)"
                   @set-cart-flag="addProductToCart(product)"
                 />
+                <a :href="'/product/' + product.id">Details</a>
               </div>
             </div>
           </div>

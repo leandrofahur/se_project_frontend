@@ -11,6 +11,7 @@ import FavoritesPage from "../pages/FavoritesPage";
 import CartPage from "../pages/CartPage";
 import InvoicePage from "../pages/InvoicePage";
 import SummaryPage from "../pages/SummaryPage";
+import ProductPage from "../pages/ProductPage";
 
 const routes = [
   {
@@ -79,6 +80,12 @@ const routes = [
     path: "/summary",
     name: "SummaryPage",
     component: SummaryPage,
+  },
+
+  {
+    path: "/product/:id",
+    name: "ProductPage",
+    component: ProductPage,
   },
 ];
 
