@@ -1,16 +1,25 @@
 <template>
   <NavbarComponent />
   <HeroComponent filename="hero04.png" />
-  <div class="container justify-content-center" v-if="product !== null">
-    <h1>{{ this.product.name }}</h1>
-    <p>{{ this.product.description }}</p>
-  </div>
-  <div v-if="product !== null">
-    <img :src="require(`@/assets/images/products/${product.productPic}`)" />
-  </div>
-  <div v-if="product !== null">
-    <button v-on:click="addToCart()">Add to cart</button>
-    <input v-model="qty" type="number" min="1" max="500" step="1" name="qty" />
+  <div class="flex-x">
+    <div class="container justify-content-center" v-if="product !== null">
+      <h1>{{ this.product.name }}</h1>
+      <p>{{ this.product.description }}</p>
+    </div>
+    <div v-if="product !== null">
+      <img :src="require(`@/assets/images/products/${product.productPic}`)" />
+    </div>
+    <div v-if="product !== null">
+      <button v-on:click="addToCart()">Add to cart</button>
+      <input
+        v-model="qty"
+        type="number"
+        min="1"
+        max="500"
+        step="1"
+        name="qty"
+      />
+    </div>
   </div>
   <FooterComponent />
 </template>
@@ -63,5 +72,10 @@ export default {
 img {
   width: 100%;
   height: 100%;
+}
+
+.flex-x {
+  display: flex;
+  justify-content: space-around;
 }
 </style>
