@@ -5,6 +5,10 @@ class OrderService {
     return http.get("/products");
   }
 
+  getProduct(id) {
+    return http.get(`/products/${id}`);
+  }
+
   getAllCategories() {
     return http.get("/categories");
   }
@@ -13,13 +17,13 @@ class OrderService {
     return http.put(`/products/${id}`, data);
   }
 
-  getCart() {
-    return http.get(`/cart`);
-  }
+  // getCart() {
+  //   return http.get(`/cart`);
+  // }
 
-  postCart(data) {
-    return http.post(`/cart`, data);
-  }
+  // postCart(data) {
+  //   return http.post(`/cart`, data);
+  // }
 }
 
 export default new OrderService();

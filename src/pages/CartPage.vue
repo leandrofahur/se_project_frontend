@@ -2,10 +2,12 @@
   <NavbarComponent />
   <div class="container">
     <div class="grid-container">
-      <CardComponent
-        :productPic="product.productPic"
-        :productName="product.name"
-      />
+      <div v-for="product in products" :key="product.id">
+        <CardComponent
+          :productPic="product.productPic"
+          :productName="product.name"
+        />
+      </div>
     </div>
   </div>
   <FooterComponent />
@@ -15,9 +17,11 @@
 import NavbarComponent from "../components/NavbarComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
 import CardComponent from "../components/CardComponent.vue";
+import CartService from "../services/CartService";
+import OrderService from "../services/OrderService";
 
 export default {
-  name: "FavoritesPage",
+  name: "CartPage",
   components: {
     NavbarComponent,
     FooterComponent,
@@ -25,10 +29,30 @@ export default {
   },
   data() {
     return {
-      cart: Object,
+      id: null,
+      cart: null,
+      products: null,
     };
   },
-  mounted() {},
+  methods: {
+    async getAllCartProduct() {
+      const responseCart = await CartService.getAll();
+      const c = responseCart.data;
+      this.cart = c;
+      console.log(c);
+
+      const p = [];
+      for (let i = 0; i < c.length; i++) {
+        let responseProduct = await OrderService.getProduct(c[i].productId);
+        p.push(responseProduct.data);
+      }
+      this.products = p;
+      console.log(p);
+    },
+  },
+  mounted() {
+    this.getAllCartProduct();
+  },
 };
 </script>
 
