@@ -80,6 +80,7 @@ export default {
           .then((reponse) => {
             var result = reponse.data;
             console.log(result);
+            this.$router.push({name:"LoginPage"})
             //console.log(message);
             this.$router.push({ name: "LoginPage" });
           })
