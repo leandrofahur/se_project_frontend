@@ -6,6 +6,11 @@ import ForgotPasswordPage from "../pages/ForgotPasswordPage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
 import ContactUsPage from "../pages/ContactUsPage";
 import UserProfilePage from "../pages/UserProfilePage";
+import ShoppingPage from "../pages/ShoppingPage";
+import FavoritesPage from "../pages/FavoritesPage";
+import CartPage from "../pages/CartPage";
+import InvoicePage from "../pages/InvoicePage";
+import SummaryPage from "../pages/SummaryPage";
 
 const routes = [
   {
@@ -19,7 +24,7 @@ const routes = [
     component: LoginPage,
   },
 
-  { 
+  {
     path: "/signup",
     name: "SignupPage",
     component: SignupPage,
@@ -49,6 +54,32 @@ const routes = [
     component: UserProfilePage,
   },
 
+  {
+    path: "/shopping",
+    name: "ShoppingPage",
+    component: ShoppingPage,
+  },
+  {
+    path: "/favorites",
+    name: "FavoritesPage",
+    component: FavoritesPage,
+  },
+  {
+    path: "/cart",
+    name: "CartPage",
+    component: CartPage,
+  },
+  {
+    path: "/invoice",
+    name: "InvoicePage",
+    component: InvoicePage,
+  },
+
+  {
+    path: "/summary",
+    name: "SummaryPage",
+    component: SummaryPage,
+  },
 ];
 
 const router = createRouter({
