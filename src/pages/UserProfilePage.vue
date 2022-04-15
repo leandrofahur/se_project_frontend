@@ -9,11 +9,15 @@
         <p class="name">{{ updateUserInfo.userName }}</p>
         <br /><br />
 
-        <p><img src="../assets/icons/user_circle_b.svg" />My Profile</p>
+        <p class="myProfile">
+          <img src="../assets/icons/user_circle_b.svg" />My Profile
+        </p>
         <br />
-        <p><img src="../assets/icons/truck.svg" />Order Status</p>
-        <br />
-        <p><a @click="logout"><img src="../assets/icons/logout.svg" />Sign Out</a></p>
+        <p>
+          <a @click="logout"
+            ><img src="../assets/icons/logout.svg" />Sign Out</a
+          >
+        </p>
         <br />
       </div>
 
@@ -323,7 +327,7 @@ export default {
         .then((reponse) => {
           var phone = reponse.data;
           console.log(phone);
-          this.$router.push({name:"HomePage"})
+          this.$router.push({ name: "HomePage" });
         })
         .catch((e) => {
           this.userPnone.number = "";
@@ -331,14 +335,14 @@ export default {
         });
     },
 
-    logout(){
+    logout() {
       localStorage.clear();
-      this.$router.push({name:"LoginPage"})
+      this.$router.push({ name: "LoginPage" });
     },
 
-    profile(){
-      this.$router.push({name:"UserProfilePage"})
-    }
+    profile() {
+      this.$router.push({ name: "UserProfilePage" });
+    },
   },
 
   mounted() {
@@ -392,4 +396,12 @@ button:hover {
   background-color: #9c114d;
   border: 1px solid #9c114d;
 }
+
+a:hover {
+  cursor: pointer;
+}
+
+/* .myProfile {
+  color: #ad1457;
+} */
 </style>

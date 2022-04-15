@@ -20,19 +20,18 @@
           name="password"
           v-model="userLoginRequest.password"
         />
-      </div>  
+      </div>
       <p class="pt-3 text-center">
         Forget the password? <a href="/forgotpassword">Click here</a>
-      </p> <br>
+      </p>
+      <br />
       <button type="submit" class="btn btn-primary" @click="login">
         Login
       </button>
       <p class="pt-3 text-center">
         Need to sign up? <a href="/signup">Click here</a>
       </p>
-      <p class="pt-3 text-center">
-        Forgot your password? <a href="/forgotpassword">Click here</a>
-      </p>
+
       <br /><br />
       <p>{{ message }}</p>
     </form>
@@ -70,8 +69,8 @@ export default {
           console.log(user);
           localStorage.setItem("email", user.email);
           localStorage.setItem("id", user.id);
-          localStorage.setItem("login", this.loginFrag)
-          this.$router.push({name:"UserProfilePage"});
+          localStorage.setItem("login", this.loginFrag);
+          this.$router.push({ name: "UserProfilePage" });
         })
         .catch((e) => {
           this.userLoginRequest.email = "";
