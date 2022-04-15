@@ -8,10 +8,7 @@
         <h1 class="text-center" style="margin: 100px 0 0 0">Products</h1>
         <div
           v-if="
-            isAll === true &&
-            isRange01 === false &&
-            isRange02 === false &&
-            isRange03 === false
+            isRange01 === false && isRange02 === false && isRange03 === false
           "
         >
           <div class="grid-container">
@@ -27,10 +24,7 @@
         </div>
         <div
           v-if="
-            isAll === true &&
-            isRange01 === true &&
-            isRange02 === false &&
-            isRange03 === false
+            isRange01 === true && isRange02 === false && isRange03 === false
           "
         >
           <div class="grid-container">
@@ -48,10 +42,7 @@
         </div>
         <div
           v-if="
-            isAll === true &&
-            isRange01 === false &&
-            isRange02 === true &&
-            isRange03 === false
+            isRange01 === false && isRange02 === true && isRange03 === false
           "
         >
           <div class="grid-container">
@@ -69,10 +60,7 @@
         </div>
         <div
           v-if="
-            isAll === true &&
-            isRange01 === false &&
-            isRange02 === false &&
-            isRange03 === true
+            isRange01 === false && isRange02 === false && isRange03 === true
           "
         >
           <div class="grid-container">
@@ -119,9 +107,9 @@ export default {
       isAll: true,
       isWomen: Boolean,
       isMen: Boolean,
-      isRange01: true,
-      isRange02: Boolean,
-      isRange03: Boolean,
+      isRange01: false,
+      isRange02: false,
+      isRange03: false,
     };
   },
   mounted() {

@@ -1,8 +1,8 @@
 <template>
   <div class="col-4">
     <h1 style="margin: 100px 0 0 0">Collections</h1>
-    <h3 style="margin: 50px 0 0 0">Filter</h3>
-    <div class="form-check mt-3">
+    <h3 style="margin: 50px 0 0 0" class="visually-hidden">Filter</h3>
+    <div class="form-check mt-3 visually-hidden">
       <input
         class="form-check-input"
         type="radio"
@@ -13,7 +13,7 @@
       />
       <label class="form-check-label" for="all">All</label>
     </div>
-    <div class="form-check mt-1">
+    <div class="form-check mt-1 visually-hidden">
       <input
         class="form-check-input"
         type="radio"
@@ -24,7 +24,7 @@
       />
       <label class="form-check-label" for="women">Women</label>
     </div>
-    <div class="form-check mt-1">
+    <div class="form-check mt-1 visually-hidden">
       <input
         class="form-check-input"
         type="radio"
