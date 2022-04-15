@@ -30,6 +30,9 @@
       <p class="pt-3 text-center">
         Need to sign up? <a href="/signup">Click here</a>
       </p>
+      <p class="pt-3 text-center">
+        Forgot your password? <a href="/forgotpassword">Click here</a>
+      </p>
       <br /><br />
       <p>{{ message }}</p>
     </form>

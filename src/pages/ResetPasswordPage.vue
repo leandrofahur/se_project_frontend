@@ -26,9 +26,6 @@
       <button type="submit" class="btn btn-primary" @click="resetPassword">
         Change Password
       </button>
-      <p class="pt-3 text-center">
-        Need to Log in? <a href="/login">Click here</a>
-      </p>
       <br /><br />
       <p>{{ message }}</p>
     </form>
@@ -85,6 +82,7 @@ export default {
             console.log(result);
             this.$router.push({name:"LoginPage"})
             //console.log(message);
+            this.$router.push({ name: "LoginPage" });
           })
           .catch((e) => {
             this.resetPasswordRequest.password = "";
@@ -94,7 +92,7 @@ export default {
             this.message = e.reponse.data.message;
             console.log(e);
           });
-      } else{
+      } else {
         this.message = "The password do not match";
       }
     },
