@@ -8,6 +8,7 @@ import ContactUsPage from "../pages/ContactUsPage";
 import UserProfilePage from "../pages/UserProfilePage";
 import ShoppingPage from "../pages/ShoppingPage";
 import FavoritesPage from "../pages/FavoritesPage";
+import CartPage from "../pages/CartPage";
 
 const routes = [
   {
@@ -60,6 +61,11 @@ const routes = [
     path: "/favorites",
     name: "FavoritesPage",
     component: FavoritesPage,
+  },
+  {
+    path: "/cart",
+    name: "CartPage",
+    component: CartPage,
   },
 ];
 
