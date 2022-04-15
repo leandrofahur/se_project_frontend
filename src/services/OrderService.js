@@ -12,6 +12,14 @@ class OrderService {
   putProduct(id, data) {
     return http.put(`/products/${id}`, data);
   }
+
+  getCart() {
+    return http.get(`/cart`);
+  }
+
+  postCart(data) {
+    return http.post(`/cart`, data);
+  }
 }
 
 export default new OrderService();

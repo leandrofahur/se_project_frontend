@@ -20,7 +20,7 @@
                 :productPic="product.productPic"
                 :productName="product.name"
                 @set-favorite-flag="setFavoriteFlag(product)"
-                @set-cart-flag="setCart(product)"
+                @set-cart-flag="addProductToCart(product)"
               />
             </div>
           </div>
@@ -40,7 +40,7 @@
                   :productPic="product.productPic"
                   :productName="product.name"
                   @set-favorite-flag="setFavoriteFlag(product)"
-                  @set-cart-flag="setCart(product)"
+                  @set-cart-flag="addProductToCart(product)"
                 />
               </div>
             </div>
@@ -61,7 +61,7 @@
                   :productPic="product.productPic"
                   :productName="product.name"
                   @set-favorite-flag="setFavoriteFlag(product)"
-                  @set-cart-flag="setCart(product)"
+                  @set-cart-flag="addProductToCart(product)"
                 />
               </div>
             </div>
@@ -82,7 +82,7 @@
                   :productPic="product.productPic"
                   :productName="product.name"
                   @set-favorite-flag="setFavoriteFlag(product)"
-                  @set-cart-flag="setCart(product)"
+                  @set-cart-flag="addProductToCart(product)"
                 />
               </div>
             </div>
@@ -115,6 +115,7 @@ export default {
     return {
       products: Array,
       categories: Array,
+      cart: Object,
       isAll: true,
       isWomen: Boolean,
       isMen: Boolean,
@@ -129,6 +130,14 @@ export default {
         const p = response.data;
         this.products = p;
         // console.log(this.products);
+      })
+      .catch((e) => console.error(e.message));
+
+    OrderService.getCart()
+      .then((response) => {
+        const c = response.data;
+        this.cart = c;
+        // console.log(this.cart);
       })
       .catch((e) => console.error(e.message));
   },
@@ -148,6 +157,13 @@ export default {
         product.isFavorite = false;
       }
       OrderService.putProduct(product.id, product);
+    },
+    addProductToCart(product) {
+      this.cart.productId = product.id;
+      this.cart.sessionId = 1;
+      this.cart.quantity = 1;
+
+      this.$emit("cart-populated", this.cart);
     },
   },
 };
