@@ -14,6 +14,7 @@
     <button v-on:click="addToCart()">
       Add to cart
     </button>
+    <input v-model="qty" type="number" min="1" max="500" step="1" name="qty">
   </div>    
   <FooterComponent />
 </template>
@@ -30,6 +31,7 @@ export default {
       return{
           id: null,
           product:null,
+          qty: 1,
       }
   },
   name: "ProductPage",
@@ -48,8 +50,8 @@ export default {
           .catch((err)=>(console.log(err))); 
       },
       addToCart(){
-        CartDataService.post(1,this.id,1);
-        console.log("Hey");
+        CartDataService.post(1,this.id,this.qty);
+        //console.log("Hey");
       }
   },
   props: {
