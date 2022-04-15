@@ -18,8 +18,13 @@
             <li class="nav-item">
               <a class="nav-link" href="/contactus">Contact Us</a>
             </li>
-
-            <li class="nav-item">
+            
+            <li v-if="loginFrag" class="nav-item">
+              <a v-if="loginFrag" class="nav-link" href="/userprofile"
+                ><img src="../assets/icons/user_circle.svg"
+              /></a>
+            </li>
+            <li v-else class="nav-item">
               <a class="nav-link" href="/login"
                 ><img src="../assets/icons/user_circle.svg"
               /></a>
@@ -45,6 +50,20 @@
 <script>
 export default {
   name: "NavbarComponent",
+  data() {
+    return {
+      loginFrag: false,
+    };
+  },
+  methods: {
+    getLoginFrag() {
+      this.loginFrag = localStorage.getItem("login");
+      console.log(this.loginFrag);
+    },
+  },
+  mounted() {
+    this.getLoginFrag();
+  },
 };
 </script>
 
